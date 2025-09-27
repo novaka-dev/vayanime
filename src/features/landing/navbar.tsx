@@ -46,8 +46,8 @@ export default function Navbar() {
               {LANDING_NAV_ITEMS.map((item, index) => (
                 <div key={item.href} className="flex items-center gap-4 text-">
                   <BreadcrumbItem className="max-md:hidden">
-                    <BreadcrumbLink href={item.href}>
-                      {item.label}
+                    <BreadcrumbLink asChild>
+                      <Link href={item.href}>{item.label}</Link>
                     </BreadcrumbLink>
                   </BreadcrumbItem>
                   {index < LANDING_NAV_ITEMS.length - 1 && (
