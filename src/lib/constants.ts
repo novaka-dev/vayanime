@@ -1,30 +1,38 @@
-import {
-  CompassIcon,
-  FeatherIcon,
-  HouseIcon,
-  icons,
-  SearchIcon,
-} from "lucide-react";
+export const BASE_URL = () => {
+  if (process.env.NODE_ENV === "production") {
+    if (!process.env.NEXT_PUBLIC_ANIME_BASE_URL) {
+      throw new Error("Please add anime base URL to .env file");
+    }
+
+    return process.env.NEXT_PUBLIC_ANIME_BASE_URL as string;
+  } else {
+    return "http://localhost:4000/api/v2/hianime";
+  }
+};
+
+export const URI =
+  process.env.NODE_ENV !== "production"
+    ? "http://localhost:3000"
+    : "https://vayanime.vercel.app";
 
 export const LANDING_NAV_ITEMS = [
   {
     label: "Home",
-    icon: HouseIcon,
     href: "/home",
   },
   {
     label: "Movies",
-    icon: CompassIcon,
+
     href: "/movies",
   },
   {
     label: "Most Popular",
-    icon: FeatherIcon,
+
     href: "/category/most-popular",
   },
   {
     label: "Top Airing",
-    icon: SearchIcon,
+
     href: "/category/top-airing",
   },
 ];

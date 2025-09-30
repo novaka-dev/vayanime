@@ -1,0 +1,188 @@
+   ▲ Next.js 15.4.6
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.1.16:3000
+   - Environments: .env
+
+ ✓ Starting...
+ ✓ Ready in 1606ms
+ ○ Compiling /home ...
+ ✓ Compiled /home in 7s (1067 modules)
+ GET /home 200 in 7634ms
+ ○ Compiling /api/v2/[...route] ...
+ ✓ Compiled /api/v2/[...route] in 503ms (614 modules)
+ ✓ Compiled in 474ms (462 modules)
+ GET /favicon.ico 200 in 1417ms
+ GET /home 200 in 297ms
+[API]: Fetched from API!
+Error: 
+    at getAnimeHomePage (src/app/api/v2/controller/anime.ts:9:10)
+    at async storeOrGetFromRedis (src/redis.ts:35:21)
+    at async GET (src/app/api/v2/[...route]/route.ts:24:19)
+   7 |   )) as ApiResponse<HomePage>;
+   8 |   if (!res.success) {
+>  9 |     throw new Error(res.message);
+     |          ^
+  10 |   }
+  11 |   return res.data;
+  12 | };
+SyntaxError: "undefined" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at GET (src/app/api/v2/[...route]/route.ts:28:36)
+  26 |         getAnimeHomePage
+  27 |       );
+> 28 |       return NextResponse.json(JSON.parse(JSON.stringify(data)), {
+     |                                    ^
+  29 |         status: 200,
+  30 |       });
+  31 |     }
+ GET /api/v2/home 500 in 2927ms
+[API]: Fetched from API!
+Error: 
+    at getAnimeHomePage (src/app/api/v2/controller/anime.ts:9:10)
+    at async storeOrGetFromRedis (src/redis.ts:35:21)
+    at async GET (src/app/api/v2/[...route]/route.ts:24:19)
+   7 |   )) as ApiResponse<HomePage>;
+   8 |   if (!res.success) {
+>  9 |     throw new Error(res.message);
+     |          ^
+  10 |   }
+  11 |   return res.data;
+  12 | };
+SyntaxError: "undefined" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at GET (src/app/api/v2/[...route]/route.ts:28:36)
+  26 |         getAnimeHomePage
+  27 |       );
+> 28 |       return NextResponse.json(JSON.parse(JSON.stringify(data)), {
+     |                                    ^
+  29 |         status: 200,
+  30 |       });
+  31 |     }
+ GET /api/v2/home 500 in 522ms
+[API]: Fetched from API!
+Error: 
+    at getAnimeHomePage (src/app/api/v2/controller/anime.ts:9:10)
+    at async storeOrGetFromRedis (src/redis.ts:35:21)
+    at async GET (src/app/api/v2/[...route]/route.ts:24:19)
+   7 |   )) as ApiResponse<HomePage>;
+   8 |   if (!res.success) {
+>  9 |     throw new Error(res.message);
+     |          ^
+  10 |   }
+  11 |   return res.data;
+  12 | };
+SyntaxError: "undefined" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at GET (src/app/api/v2/[...route]/route.ts:28:36)
+  26 |         getAnimeHomePage
+  27 |       );
+> 28 |       return NextResponse.json(JSON.parse(JSON.stringify(data)), {
+     |                                    ^
+  29 |         status: 200,
+  30 |       });
+  31 |     }
+ GET /api/v2/home 500 in 481ms
+[API]: Fetched from API!
+Error: 
+    at getAnimeHomePage (src/app/api/v2/controller/anime.ts:9:10)
+    at async storeOrGetFromRedis (src/redis.ts:35:21)
+    at async GET (src/app/api/v2/[...route]/route.ts:24:19)
+   7 |   )) as ApiResponse<HomePage>;
+   8 |   if (!res.success) {
+>  9 |     throw new Error(res.message);
+     |          ^
+  10 |   }
+  11 |   return res.data;
+  12 | };
+SyntaxError: "undefined" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at GET (src/app/api/v2/[...route]/route.ts:28:36)
+  26 |         getAnimeHomePage
+  27 |       );
+> 28 |       return NextResponse.json(JSON.parse(JSON.stringify(data)), {
+     |                                    ^
+  29 |         status: 200,
+  30 |       });
+  31 |     }
+ GET /api/v2/home 500 in 637ms
+[API]: Fetched from API!
+Error: 
+    at getAnimeHomePage (src/app/api/v2/controller/anime.ts:9:10)
+    at async storeOrGetFromRedis (src/redis.ts:35:21)
+    at async GET (src/app/api/v2/[...route]/route.ts:24:19)
+   7 |   )) as ApiResponse<HomePage>;
+   8 |   if (!res.success) {
+>  9 |     throw new Error(res.message);
+     |          ^
+  10 |   }
+  11 |   return res.data;
+  12 | };
+SyntaxError: "undefined" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at GET (src/app/api/v2/[...route]/route.ts:28:36)
+  26 |         getAnimeHomePage
+  27 |       );
+> 28 |       return NextResponse.json(JSON.parse(JSON.stringify(data)), {
+     |                                    ^
+  29 |         status: 200,
+  30 |       });
+  31 |     }
+ GET /api/v2/home 500 in 528ms
+ ✓ Compiled in 458ms (1059 modules)
+ GET /home 200 in 154ms
+ ✓ Compiled /api/v2/[...route] in 158ms (690 modules)
+ GET /home 200 in 227ms
+[API]: Fetched from API!
+Error: 
+    at getAnimeHomePage (src/app/api/v2/controller/anime.ts:9:10)
+    at async storeOrGetFromRedis (src/redis.ts:35:21)
+    at async GET (src/app/api/v2/[...route]/route.ts:24:19)
+   7 |   )) as ApiResponse<HomePage>;
+   8 |   if (!res.success) {
+>  9 |     throw new Error(res.message);
+     |          ^
+  10 |   }
+  11 |   return res.data;
+  12 | };
+TypeError: Value is not JSON serializable
+    at GET (src/app/api/v2/[...route]/route.ts:28:26)
+  26 |         getAnimeHomePage
+  27 |       );
+> 28 |       return NextResponse.json(data, { status: 200 });
+     |                          ^
+  29 |     }
+  30 |
+  31 |     // fetch anime info...
+ GET /api/v2/home 500 in 1054ms
+[API]: Fetched from API!
+Error: 
+    at getAnimeHomePage (src/app/api/v2/controller/anime.ts:9:10)
+    at async storeOrGetFromRedis (src/redis.ts:35:21)
+    at async GET (src/app/api/v2/[...route]/route.ts:24:19)
+   7 |   )) as ApiResponse<HomePage>;
+   8 |   if (!res.success) {
+>  9 |     throw new Error(res.message);
+     |          ^
+  10 |   }
+  11 |   return res.data;
+  12 | };
+TypeError: Value is not JSON serializable
+    at GET (src/app/api/v2/[...route]/route.ts:28:26)
+  26 |         getAnimeHomePage
+  27 |       );
+> 28 |       return NextResponse.json(data, { status: 200 });
+     |                          ^
+  29 |     }
+  30 |
+  31 |     // fetch anime info...
+ GET /api/v2/home 500 in 525ms
+ ✓ Compiled in 289ms (462 modules)
+ ✓ Compiled in 477ms (1059 modules)
+ ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+   ▲ Next.js 15.4.6
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.1.16:3000
+   - Environments: .env
+
+ ✓ Starting...
+ ✓ Ready in 1779ms
