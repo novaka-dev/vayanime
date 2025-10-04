@@ -7,7 +7,7 @@ import { Bug, GitFork, Search, Star, Users } from "lucide-react";
 import { HeroTitle } from "./_components/heroTitle";
 import { BadgeLabel } from "./_components/badgeLabel";
 
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/ui/search-bar";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import z from "zod";
