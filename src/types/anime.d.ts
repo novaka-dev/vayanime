@@ -297,3 +297,8 @@ export type ScheduledAnimes = {
   secondsUntilAiring: number;
   episode: number;
 };
+
+type SimpleLink = {
+  href: string;
+  label: string;
+};
