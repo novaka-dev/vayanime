@@ -79,7 +79,7 @@ const AnimeSpotlightCarousel = ({
                 <div className="w-full max-w-3xl px-10">
                   {/* Top Badge Section */}
                   <div className="mb-4 flex items-center gap-3">
-                    <Badge className="bg-pink-600 px-3 py-1.5 text-sm font-bold uppercase tracking-wide hover:bg-red-600 text-white">
+                    <Badge className="bg-purple-600 px-3 py-1.5 text-sm font-bold uppercase tracking-wide hover:bg-red-600 text-white">
                       #{anime.rank} Spotlight
                     </Badge>
                     <BadgeEpisode episodes={anime.episodes} size="sm" />
@@ -113,7 +113,7 @@ const AnimeSpotlightCarousel = ({
 
                     <span className="h-1 w-1 rounded-full bg-gray-500" />
 
-                    <Badge className=" bg-pink-300 text-xs font-semibold">
+                    <Badge className=" bg-purple-300 text-xs font-semibold">
                       {anime.otherInfo[3]}
                     </Badge>
                   </div>

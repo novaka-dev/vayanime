@@ -17,9 +17,9 @@ export const redis = new Redis(getRedisConnectionURL(), {
 
 export async function storeOrGetFromRedis<T>(
   key: string,
-  fetch: () => Promise<T>,
+  fetch: () => Promise<ApiResponse<T>>,
   ttl = 3600,
-): Promise<T> {
+): Promise<ApiResponse<T>> {
   if (!key) {
     throw new Error("[Key] is required!");
   }
@@ -28,13 +28,12 @@ export async function storeOrGetFromRedis<T>(
     const cachedData = await redis.get(key);
     if (cachedData) {
       console.log("[Redis]: Cached from redis DB");
-      return JSON.parse(cachedData) as T; // ✅ Langsung T, bukan ApiResponse<T>
+      return JSON.parse(cachedData) as ApiResponse<T>;
     }
 
     console.log("[API]: Fetched from API!");
     const response = await fetch();
 
-    // Sanitize data sebelum simpan ke Redis
     const serializableResponse = JSON.parse(JSON.stringify(response));
     await redis.set(key, JSON.stringify(serializableResponse), "EX", ttl);
 
@@ -42,8 +41,7 @@ export async function storeOrGetFromRedis<T>(
     return serializableResponse;
   } catch (error) {
     console.error("[Redis Error]:", error);
-    // Fallback: fetch langsung tanpa cache
     const response = await fetch();
-    return JSON.parse(JSON.stringify(response)); // Pastikan serializable
+    return JSON.parse(JSON.stringify(response));
   }
 }

@@ -7,7 +7,6 @@ import { Bug, GitFork, Search, Star, Users } from "lucide-react";
 import { HeroTitle } from "./_components/heroTitle";
 import { BadgeLabel } from "./_components/badgeLabel";
 
-import { Input } from "@/components/ui/search-bar";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import z from "zod";
@@ -16,6 +15,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { Input } from "@/components/ui/input";
 
 /**
  * Main Hero component combining all elements
