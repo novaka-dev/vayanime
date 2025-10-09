@@ -90,3 +90,13 @@ export const TYPES = [
   { title: "ONAs", href: "/category/ona" },
   { title: "Specials", href: "/category/special" },
 ] as const;
+
+export const COLORS = [
+  "#c4d89d",
+  "#efafd2",
+  "#df7c73",
+  "#bc9eca",
+  "#99b5c1",
+  "#c1a29f",
+  "#79c6b8",
+];
