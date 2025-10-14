@@ -18,20 +18,20 @@ export default function TrendingCarousel({
   animes: TrendingAnime[];
 }) {
   return (
-    <div className="relative w-full">
+    <div className="relative w-full md:px-8">
       <Carousel
         opts={{
           align: "start",
           loop: false,
         }}
-        className="w-full"
+        className="w-full mt-6"
       >
-        <CarouselContent className="-ml-3">
+        <CarouselContent className="-ml-2">
           {animes.map(({ id, name, poster, rank }) => (
-            <CarouselItem key={id} className="pl-4 basis-auto">
-              <div className="relative flex items-end gap-1">
+            <CarouselItem key={id} className="pl-2 basis-auto">
+              <div className="relative flex items-end gap-2">
                 {/* Vertical Text and Rank Number */}
-                <div className="hidden md:flex md:flex-col md:items-center md:justify-end md:h-full md:pb-2">
+                <div className="hidden md:flex md:flex-col md:items-center md:justify-end md:h-full md:px-1 ">
                   <Link
                     href={`/${id}`}
                     className="h-[200px] overflow-hidden text-ellipsis whitespace-nowrap text-sm font-medium text-gray-300 hover:text-purple-300 transition-colors mb-3"
@@ -42,7 +42,7 @@ export default function TrendingCarousel({
                   >
                     {name}
                   </Link>
-                  <span className="text-2xl font-bold text-purple-400">
+                  <span className="text-2xl font-bold text-rose-400">
                     {Number(rank) < 10 ? `0${Number(rank)}` : Number(rank)}
                   </span>
                 </div>
@@ -53,15 +53,19 @@ export default function TrendingCarousel({
                 </div>
 
                 {/* Poster Image with Hover Card */}
-                <HoveredContent animeId={id} to={`/${id}`}>
-                  <div className="relative aspect-[2/3] w-[180px] overflow-hidden cursor-pointer">
+                <HoveredContent animeId={id}>
+                  <Link
+                    href={`/${id}`}
+                    className="relative aspect-[2/3] w-[180px] overflow-hidden cursor-pointer"
+                  >
                     <CustomImage
+                      priority
                       src={poster}
                       alt={name}
                       fill
                       className="object-cover"
                     />
-                  </div>
+                  </Link>
                 </HoveredContent>
               </div>
             </CarouselItem>
@@ -69,8 +73,8 @@ export default function TrendingCarousel({
         </CarouselContent>
 
         {/* Navigation Arrows */}
-        <CarouselPrevious className="-left-4 bg-gray-800/80 border-gray-700 hover:bg-gray-700 text-white" />
-        <CarouselNext className="-right-4 bg-gray-800/80 border-gray-700 hover:bg-gray-700 text-white" />
+        <CarouselPrevious className="absolute top-1/2 -translate-y-1/2 -left-12 bg-gray-800/80 border-gray-700 hover:bg-gray-700 text-white" />
+        <CarouselNext className="absolute top-1/2 -translate-y-1/2 -right-12 bg-gray-800/80 border-gray-700 hover:bg-gray-700 text-white" />
       </Carousel>
     </div>
   );

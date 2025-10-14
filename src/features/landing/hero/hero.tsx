@@ -78,8 +78,12 @@ export function Hero() {
               className="h-12 w-70 text-base data-[error=true]:bg-red-100 data-[error=true]:text-red-500 data-[error=true]:outline-red-500"
               {...register("query")}
             />
-            <Button className="!h-12 aspect-square" type="submit">
-              <Search className="!h-5 !w-5 text-black/80" />
+            <Button
+              className="!h-12 aspect-square"
+              type="submit"
+              variant={"default"}
+            >
+              <Search className="!h-5 !w-5 text-white/80" />
             </Button>
           </form>
 

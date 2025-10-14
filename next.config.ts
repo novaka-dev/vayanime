@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         hostname: "cdn.noitatnemucod.net",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.myanimelist.net",
+        pathname: "/**",
+      },
     ],
   },
 };

@@ -98,7 +98,7 @@ export default function Navbar() {
                 height={100}
                 className="w-10 h-10 md:w-12 md:h-12"
               />
-              <span className="text-lg md:text-xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+              <span className="text-lg md:text-xl font-bold bg-gradient-to-r from-white to-purple-600 bg-clip-text text-transparent">
                 Vayanime
               </span>
             </Link>
