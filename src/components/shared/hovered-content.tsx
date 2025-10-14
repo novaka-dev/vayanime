@@ -1,5 +1,6 @@
 "use client";
 
+import useMediaQueries from "@/hooks/use-media-queries";
 import { QUERY_KEY } from "@/lib/query-key";
 import { getAnimeInfoById } from "@/services/api";
 import { useQuery } from "@tanstack/react-query";
@@ -8,14 +9,12 @@ import { useEffect, useState } from "react";
 import { FaPlayCircle } from "react-icons/fa";
 import { FaStar } from "react-icons/fa6";
 import { Button } from "../ui/button";
-
-import BeatLoader from "./loader";
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from "../ui/hover-card";
-import useMediaQueries from "@/hooks/use-media-queries";
+import BeatLoader from "./loader";
 import { BadgeEpisode } from "../ui/episode-badge";
 
 interface HoveredCardProps {
@@ -55,10 +54,13 @@ export default function HoveredContent({
       </HoverCardTrigger>
       {showPopupInfo && (
         <HoverCardContent
-          align="start"
+          align="center"
+          ref={null}
+          sideOffset={-80}
+          side={"right"}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className="w-72 border-none bg-primary/50 backdrop-blur-xl"
+          className="w-72 border-none bg-[#181818cf] backdrop-blur-xl"
         >
           {isLoading ? (
             <div className="grid h-full w-full place-items-center">

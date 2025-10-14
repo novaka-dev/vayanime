@@ -60,6 +60,7 @@ const AnimeSpotlightCarousel = ({
           {spotlightAnimes.map((anime, idx) => (
             <CarouselItem key={anime.id} className="relative h-full pl-0">
               {/* Background Image */}
+              {/* Background Image */}
               <div className="absolute inset-0 h-full w-full">
                 <Image
                   src={anime.poster}
@@ -68,10 +69,10 @@ const AnimeSpotlightCarousel = ({
                   priority
                   className="h-full w-full object-cover object-top [mask-image:linear-gradient(90deg,transparent,white,transparent)]"
                 />
-                {/* Gradient Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/50 to-transparent md:from-black/85 md:via-black/30" />
-                <div className="absolute -bottom-35 left-0 right-0 h-1/2  bg-gradient-to-t from-black via-black/90 to-transparent pointer-events-none" />
+                {/* Unified vertical gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none" />
+                {/* Subtle horizontal gradient for cinematic feel */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/10 pointer-events-none" />
               </div>
 
               {/* Content Container */}
@@ -79,7 +80,7 @@ const AnimeSpotlightCarousel = ({
                 <div className="w-full max-w-3xl px-10">
                   {/* Top Badge Section */}
                   <div className="mb-4 flex items-center gap-3">
-                    <Badge className="bg-purple-600 px-3 py-1.5 text-sm font-bold uppercase tracking-wide hover:bg-red-600 text-white">
+                    <Badge className="bg-rose-600 px-3 py-1.5 text-sm font-bold uppercase tracking-wide hover:bg-red-600 text-white">
                       #{anime.rank} Spotlight
                     </Badge>
                     <BadgeEpisode episodes={anime.episodes} size="sm" />
@@ -113,7 +114,7 @@ const AnimeSpotlightCarousel = ({
 
                     <span className="h-1 w-1 rounded-full bg-gray-500" />
 
-                    <Badge className=" bg-purple-300 text-xs font-semibold">
+                    <Badge className=" bg-rose-400 text-xs font-semibold">
                       {anime.otherInfo[3]}
                     </Badge>
                   </div>
@@ -152,13 +153,13 @@ const AnimeSpotlightCarousel = ({
 
         <CarouselNext className="absolute right-6 top-1/2 z-20 h-12 w-12 -translate-y-1/2 rounded-full border-2 border-white/30 bg-black/60 text-white backdrop-blur-md transition-all hover:scale-110 hover:border-white/50 hover:bg-black/80 md:right-8" />
         {/* Progress Indicators */}
-        <div className="absolute bottom-20 left-1/2 z-20 flex -translate-x-1/2 gap-2">
+        <div className="absolute bottom-20 left-1/2 z-0 flex -translate-x-1/2 gap-2">
           {spotlightAnimes.map((_, idx) => (
             <div
               key={idx}
               className={`h-1 rounded-full transition-all duration-500 ${
                 idx === currentIndex
-                  ? "w-10 bg-red-600"
+                  ? "w-10 bg-primary"
                   : "w-6 bg-gray-600/60 hover:bg-gray-500/80"
               }`}
             />
