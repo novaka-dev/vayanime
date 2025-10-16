@@ -7,6 +7,7 @@ import AnimeSpotlightCarousel from "./_components/carousel/spotlight";
 import HomeLayout from "@/components/shared/layouts/home-layout";
 import TrendingCarousel from "./_components/carousel/trending";
 import GenreAnime from "@/components/shared/genre-anime";
+import LatestEpisodes from "@/components/shared/latest-episodes";
 
 export default function Home() {
   const { data: animes, isLoading } = useQuery({
@@ -21,6 +22,7 @@ export default function Home() {
     spotlightAnimes,
     trendingAnimes,
     latestCompletedAnimes,
+    latestEpisodeAnimes,
     mostPopularAnimes,
     mostFavoriteAnimes,
     topAiringAnimes,
@@ -52,6 +54,13 @@ export default function Home() {
           <GenreAnime title="Most Popular" animes={mostPopularAnimes} />
           <GenreAnime title="Completed Animes" animes={latestCompletedAnimes} />
         </div>
+      </div>
+
+      {/* Latest episode */}
+      <div className="">
+        <HomeLayout heading="Latest Episode">
+          <LatestEpisodes animes={latestEpisodeAnimes} />
+        </HomeLayout>
       </div>
     </div>
   );
