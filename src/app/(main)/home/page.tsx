@@ -8,6 +8,7 @@ import HomeLayout from "@/components/shared/layouts/home-layout";
 import TrendingCarousel from "./_components/carousel/trending";
 import GenreAnime from "@/components/shared/genre-anime";
 import LatestEpisodes from "@/components/shared/latest-episodes";
+import Schedule from "./_components/schedule";
 
 export default function Home() {
   const { data: animes, isLoading } = useQuery({
@@ -57,9 +58,15 @@ export default function Home() {
       </div>
 
       {/* Latest episode */}
-      <div className="">
+      <div className="wrapper-container px-12 md:px-24 space-y-6 py-8">
         <HomeLayout heading="Latest Episode">
           <LatestEpisodes animes={latestEpisodeAnimes} />
+        </HomeLayout>
+      </div>
+
+      <div>
+        <HomeLayout>
+          <Schedule />
         </HomeLayout>
       </div>
     </div>
