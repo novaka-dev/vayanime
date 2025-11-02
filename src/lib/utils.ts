@@ -41,6 +41,75 @@ export function getNextAndPrevSevenDates(): {
   return { prevDates, nextDates };
 }
 
+export function getDayOfWeek(dateStr: string): string {
+  const date = new Date(dateStr); // creating a date object from the date string
+
+  // arrays of day names
+  const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  const dayIndex = date.getDay(); // get the day index (0: sunday, 6: saturday)
+
+  return daysOfWeek[dayIndex];
+}
+
+/**
+ * Get current times in realtime.
+ * format: UTC MM/DD/YYYY hh:mm:ss AM/PM
+ * timezoneOffset.
+ * return String
+ */
+
+export function getFormattedCurrentTime(): string {
+  // current date;
+  const now = new Date();
+
+  // get the timezone offset in minutes
+  const timezoneOffset = now.getTimezoneOffset();
+
+  // returns GMT offset (like +05:30 or -05:30)
+  const sign = timezoneOffset > 0 ? "-" : "+";
+  const hoursOffset = Math.abs(Math.floor(timezoneOffset / 60))
+    .toString()
+    .padStart(2, "0");
+  const minutesOffset = Math.abs(timezoneOffset % 60)
+    .toString()
+    .padStart(2, "0");
+  const gmtOffset = `GMT${sign}${hoursOffset}:${minutesOffset}`;
+
+  const options: Intl.DateTimeFormatOptions = {
+    hour12: true,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  };
+
+  const formattedDate = new Intl.DateTimeFormat("en-US", options).format(now);
+
+  return `(${gmtOffset}) ${formattedDate}`;
+}
+
+export function getMonth(month: number) {
+  const MONTHS = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  return MONTHS[month - 1];
+}
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }

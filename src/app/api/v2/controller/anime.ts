@@ -69,3 +69,29 @@ export const fetchAnimeInfoByAnimeId = async (
 
   return JSON.parse(JSON.stringify(res.data));
 };
+
+/**
+ * API function to fetch the estimated schedule of anime by dates in format: 'YYYY-MM-DD'
+ * @return Array<ScheduleAnimes>
+ */
+export const fetchAnimeScheduleByDate = async (
+  date: string,
+): Promise<ApiResponse<ScheduledAnimes>> => {
+  const res = (await fetch(BASE_URL() + `/schedule?date=${date}`, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((res) => res.json())) as ApiResponse<ScheduledAnimes>;
+
+  // ✅ cek pakai res.status, bukan res.success
+  if (res.status !== 200) {
+    throw new Error(res.message || "Failed to fetch schedule");
+  }
+
+  // ✅ return full ApiResponse, bukan cuma data
+  return {
+    status: res.status,
+    data: res.data,
+    message: res.message,
+  };
+};
