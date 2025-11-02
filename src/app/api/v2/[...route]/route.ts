@@ -6,6 +6,7 @@ import { NextRequest, NextResponse } from "next/server";
 import {
   fetchAnimeEpisodesById,
   fetchAnimeInfoByAnimeId,
+  fetchAnimeScheduleByDate,
   getAnimeHomePage,
 } from "../controller/anime";
 
@@ -58,6 +59,25 @@ export async function GET(
       );
 
       return NextResponse.json(animeEpisodes, { status: 200 });
+    }
+
+    case "/anime/schedule": {
+      const date = searchParams.get("date");
+
+      if (!date) {
+        return NextResponse.json(
+          { message: "Date is required!" },
+          { status: 500 },
+        );
+      }
+
+      const scheduledAnime = await storeOrGetFromRedis(
+        generateUniqueKey(QUERY_KEY.UPCOMING_SCHEDULE, date),
+        async () => await fetchAnimeScheduleByDate(date),
+        86400, // 1d
+      );
+
+      return NextResponse.json(scheduledAnime, { status: 200 });
     }
   }
 }

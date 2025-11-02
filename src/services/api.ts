@@ -29,3 +29,11 @@ export async function getAnimeEpisodesById(id: string) {
   const data = await fetchUrl<AnimeEpisodes>(`/api/v2/episodes?id=${id}`);
   return data;
 }
+
+export async function getAnimeScheduleByDate(date: string) {
+  const animes = await fetchUrl<ScheduledAnimes>(
+    `/api/v2/anime/schedule?date=${date}`,
+  );
+
+  return animes;
+}
